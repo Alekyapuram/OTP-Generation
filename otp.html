@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+        #title{
+            font-size: 50px;
+        }
+        #btn{
+         margin-top: 30px;
+         margin-left:100px;
+         background-color: burlywood;
+         font-size: 20px;
+         padding: 10px;
+         border-radius: 5px;
+            
+        }
+        #otp-value{
+            font-size:25px ;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-left:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="title">Generation of OTP</div>
+        <div id="otp">
+            <button id="btn">Generate</button>
+            <p><span id="otp-value"></span></p>
+        </div>
+    </div>
+    <script>
+        let gen=document.getElementById('btn')
+        gen.addEventListener('click', function () {
+            let otpValue = generate_otp(6); // You can change 6 to any desired length
+            document.getElementById('otp-value').innerHTML = otpValue;
+        });
+    function generate_otp(length=4){
+        let otp=" "
+        for(i=0;i<length;i++){
+            otp+=Math.floor(Math.random()*10).toString();
+            }
+            return otp;
+            
+        }
+        
+        // console.log(generate_otp(6));
+        
+    </script>
+</body>
+</html>
